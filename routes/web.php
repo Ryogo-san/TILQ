@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,11 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
+});
+
+Route::group(['prefix'=>'til','middleware'=>'auth'],function(){
+    Route::get('/',[UserController::class,'TILindex']);
+    Route::get('mydashboard',[UserController::class,'TILshow']);
 });
 
 Route::get('/dashboard', function () {

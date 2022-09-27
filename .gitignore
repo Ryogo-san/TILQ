@@ -14,3 +14,8 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+
+# below are my own configuration.
+FunctionalRequirements.md
+Devlog.md
