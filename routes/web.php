@@ -28,6 +28,8 @@ Route::get('/', function () {
 Route::group(['prefix'=>'til','middleware'=>'auth'],function(){
     Route::get('/',[UserController::class,'TILindex']);
     Route::get('mydashboard',[UserController::class,'TILshow']);
+    Route::get('mydashboard/create',[UserController::class,'TILcreate']);
+    Route::get('mydashboard/{post}',[UserController::class,'TILshowDetail'])->name('TILshowDetail');
 });
 
 Route::get('/dashboard', function () {

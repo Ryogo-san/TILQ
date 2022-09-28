@@ -1,3 +1,4 @@
+import { Link } from "@inertiajs/inertia-react";
 import React from "react";
 
 export default function Show(props) {
@@ -9,11 +10,17 @@ export default function Show(props) {
             {posts.map((post) => {
                 return (
                     <div>
-                        <h1>{post.title}</h1>
+                        <h1>
+                            <Link href={"/til/mydashboard/" + post.id}>
+                                {post.title}
+                            </Link>
+                        </h1>
+                        <p>{post.id}</p>
                         <p>{post.body}</p>
                     </div>
                 );
             })}
+            <Link href="til/mydashboard/create">create</Link>
         </div>
     );
 }
