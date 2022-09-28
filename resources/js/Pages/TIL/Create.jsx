@@ -7,7 +7,7 @@ const previewStyle = {
     justifyContent: "center",
     margin: "0 0 0 0",
     width: "100vw",
-    height: "100vh",
+    height: "70vh",
 };
 
 const textareaStyle = {
@@ -19,7 +19,10 @@ export default function Create(props) {
     const [values, setValues] = useState({
         title: "",
         body: "",
+        accessibility: 1,
     });
+
+    console.log(props.accessibilities);
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -30,7 +33,7 @@ export default function Create(props) {
             [key]: value,
         }));
         if (values.body != "") {
-            Inertia.post("/til/mydashboard/markdown", values);
+            Inertia.post("/til/mydashboard/create", values);
         }
     };
 
@@ -42,14 +45,16 @@ export default function Create(props) {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <label>タイトル</label>
-                <input
-                    type="text"
-                    id="title"
-                    name="post[title]"
-                    value={values.title}
-                    onChange={handleChange}
-                />
+                <div className="grid place-items-center">
+                    <label>タイトル</label>
+                    <input
+                        type="text"
+                        id="title"
+                        name="post[title]"
+                        value={values.title}
+                        onChange={handleChange}
+                    />
+                </div>
                 <br />
                 <div style={previewStyle}>
                     <div>
@@ -70,7 +75,21 @@ export default function Create(props) {
                     </div>
                     <div dangerouslySetInnerHTML={{ __html: props.body }} />
                 </div>
-                <button type="submit">Store</button>
+                <div className="grid place-items-center">
+                    <label>accessibility</label>
+                    <select
+                        id="accessibility"
+                        name="post[accessibility"
+                        value={values.accessibility}
+                        onChange={handleChange}
+                    >
+                        {props.accessibilities.map((option) => (
+                            <option value={option.id}>{option.type}</option>
+                        ))}
+                    </select>
+                    <br />
+                    <button type="submit">Store</button>
+                </div>
             </form>
             <Link href="/til/mydashboard">戻る</Link>
         </div>

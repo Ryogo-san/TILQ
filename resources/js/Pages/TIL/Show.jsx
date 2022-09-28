@@ -1,3 +1,4 @@
+import Topbar from "@/MyComponents/Topbar";
 import { Link } from "@inertiajs/inertia-react";
 import React from "react";
 
@@ -8,6 +9,7 @@ export default function Show(props) {
 
     return (
         <div>
+            <Topbar user={props.auth.user} />
             {posts.map((post) => {
                 return (
                     <div>
@@ -21,7 +23,12 @@ export default function Show(props) {
                     </div>
                 );
             })}
-            <Link href="/til/mydashboard/create">create</Link>
+            <div>
+                <Link href="/til/mydashboard/create">create</Link>
+            </div>
+            <div>
+                <Link href="/til">back</Link>
+            </div>
         </div>
     );
 }

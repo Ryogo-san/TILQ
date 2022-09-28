@@ -26,10 +26,10 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix'=>'til','middleware'=>'auth'],function(){
-    Route::get('/',[UserController::class,'TILindex']);
+    Route::get('/',[UserController::class,'TILindex'])->name('index');
     Route::get('mydashboard',[UserController::class,'TILshow'])->name('TILdashboard');
     Route::get('mydashboard/create',[UserController::class,'TILcreate']);
-    Route::post('mydashboard/markdown',[UserController::class,'markdown'])->middleware('throttle:150');
+    Route::post('mydashboard/create',[UserController::class,'markdown'])->middleware('throttle:150');
     Route::post('mydashboard/store',[UserController::class,'store']);
     Route::get('mydashboard/{post}',[UserController::class,'TILshowDetail'])->name('TILshowDetail');
 });
