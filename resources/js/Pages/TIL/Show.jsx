@@ -4,6 +4,7 @@ import React from "react";
 export default function Show(props) {
     const user = props.user;
     const posts = props.posts;
+    console.log(posts);
 
     return (
         <div>
@@ -20,7 +21,7 @@ export default function Show(props) {
                     </div>
                 );
             })}
-            <Link href="til/mydashboard/create">create</Link>
+            <Link href="/til/mydashboard/create">create</Link>
         </div>
     );
 }

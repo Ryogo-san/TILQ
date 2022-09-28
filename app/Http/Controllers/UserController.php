@@ -34,4 +34,28 @@ class UserController extends Controller
             'post'=>$post,
         ]);
     }
+
+    public function TILcreate(){
+        return Inertia::render('TIL/Create');
+    }
+
+    public function markdown(Request $request){
+        $body=$request['body'];
+
+        //return Str::of($body)->markdown();
+        return Inertia::render('TIL/Create',[
+            'body'=>Str::of($body)->markdown()
+        ]);
+    }
+
+    public function store(Request $request, Post $post){
+        $input=$request->all();
+        $input['user_id']=auth()->id();
+        $input['accessibility_id']=1;
+        $post->fill($input)->save();
+
+        dd($post);
+
+        return redirect(route('TILdashboard'));
+    }
 }

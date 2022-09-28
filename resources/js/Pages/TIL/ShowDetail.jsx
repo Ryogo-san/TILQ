@@ -4,9 +4,6 @@ import React from "react";
 export default function ShowDetail(props) {
     const post = props.post;
 
-    const createMarkup = () => {
-        return { __html: "First &middot; Second" };
-    };
 
     return (
         <div>

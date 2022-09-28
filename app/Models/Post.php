@@ -10,11 +10,13 @@ class Post extends Model
 {
     use HasFactory;
     use UsesUuid;
-    //protected $primaryKey = 'id';
-    /// オートインクリメント無効化
-    //public $incrementing = false;
-    /// Laravel 6.0+以降なら指定
-    //protected $keyType = 'string';
+
+    protected $fillable=[
+        'title',
+        'body',
+        'user_id',
+        'accessibility_id'
+    ];
 
     public function user()
     {

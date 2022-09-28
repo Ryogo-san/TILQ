@@ -5,8 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
-class AccessibilitiesSeeder extends Seeder
+class UsersSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,10 +16,11 @@ class AccessibilitiesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('accessibilities')->insert([[
-            'type'=>'public'
-        ],[
-            'type'=>'private'
-        ]]);
+        //
+        DB::table('users')->insert([
+            'name'=>'dev',
+            'email'=>'aaaa@aaa.com',
+            'password'=>Hash::make('aaaaaaaa'),
+        ]);
     }
 }
