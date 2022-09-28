@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,11 +28,11 @@ Route::get('/', function () {
 
 Route::group(['prefix'=>'til','middleware'=>'auth'],function(){
     Route::get('/',[UserController::class,'TILindex'])->name('index');
-    Route::get('mydashboard',[UserController::class,'TILshow'])->name('TILdashboard');
-    Route::get('mydashboard/create',[UserController::class,'TILcreate']);
-    Route::post('mydashboard/create',[UserController::class,'markdown'])->middleware('throttle:150');
-    Route::post('mydashboard/store',[UserController::class,'store']);
-    Route::get('mydashboard/{post}',[UserController::class,'TILshowDetail'])->name('TILshowDetail');
+    Route::get('mydashboard',[PostController::class,'TILshow'])->name('TILdashboard');
+    Route::get('mydashboard/create',[PostController::class,'TILcreate']);
+    Route::post('mydashboard/create',[PostController::class,'markdown'])->middleware('throttle:150');
+    Route::post('mydashboard/store',[PostController::class,'store']);
+    Route::get('mydashboard/{post}',[PostController::class,'TILshowDetail'])->name('TILshowDetail');
 });
 
 Route::get('/dashboard', function () {

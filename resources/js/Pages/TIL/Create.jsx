@@ -5,9 +5,8 @@ import { Link } from "@inertiajs/inertia-react";
 const previewStyle = {
     display: "flex",
     justifyContent: "center",
-    margin: "0 0 0 0",
     width: "100vw",
-    height: "70vh",
+    height: "100vh",
 };
 
 const textareaStyle = {
@@ -19,10 +18,8 @@ export default function Create(props) {
     const [values, setValues] = useState({
         title: "",
         body: "",
-        accessibility: 1,
+        accessibility_id: 1,
     });
-
-    console.log(props.accessibilities);
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -78,9 +75,9 @@ export default function Create(props) {
                 <div className="grid place-items-center">
                     <label>accessibility</label>
                     <select
-                        id="accessibility"
-                        name="post[accessibility"
-                        value={values.accessibility}
+                        id="accessibility_id"
+                        name="post[accessibility_id]"
+                        value={values.accessibility_id}
                         onChange={handleChange}
                     >
                         {props.accessibilities.map((option) => (
