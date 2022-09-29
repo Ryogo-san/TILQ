@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('accessibilities', function (Blueprint $table) {
             $table->id();
-            $table->string('type',10);
+            $table->string('type', 10);
         });
     }
 

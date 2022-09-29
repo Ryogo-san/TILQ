@@ -8,9 +8,9 @@ trait UsesUuid
 {
     protected static function bootUsesUuid()
     {
-        static::creating(function ($model){
-            if(!$model->getKey()){
-                $model->{$model->getKeyName()}=(string)Str::uuid();
+        static::creating(function ($model) {
+            if (! $model->getKey()) {
+                $model->{$model->getKeyName()} = (string) Str::uuid();
             }
         });
     }
@@ -20,7 +20,8 @@ trait UsesUuid
         return false;
     }
 
-    public function getKeyType(){
+    public function getKeyType()
+    {
         return 'string';
     }
 }

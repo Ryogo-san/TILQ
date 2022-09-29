@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('title',100);
-            $table->string('body',1000);
+            $table->string('title', 100);
+            $table->string('body', 1000);
             $table->foreignId('user_id');
             $table->string('image_path')->nullable();
             $table->foreignId('accessibility_id');

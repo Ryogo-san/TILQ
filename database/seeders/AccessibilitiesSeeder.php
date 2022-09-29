@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -16,9 +15,9 @@ class AccessibilitiesSeeder extends Seeder
     public function run()
     {
         DB::table('accessibilities')->insert([[
-            'type'=>'public'
-        ],[
-            'type'=>'private'
+            'type' => 'public',
+        ], [
+            'type' => 'private',
         ]]);
     }
 }
