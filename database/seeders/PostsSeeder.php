@@ -20,7 +20,7 @@ class PostsSeeder extends Seeder
             'body' => '# this is a sample body.',
             'user_id' => 1,
             'accessibility_id' => 1,
-            'created_at' => now(),
+            'created_at' => '2022-09-29 00:46:33',
             'updated_at' => now(),
         ], [
             'id' => str()->uuid(),
