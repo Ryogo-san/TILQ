@@ -1,18 +1,20 @@
 import { React, useState } from "react";
 import { Inertia } from "@inertiajs/inertia";
 import { Link } from "@inertiajs/inertia-react";
-
-const previewStyle = {
-    display: "flex",
-    justifyContent: "center",
-    width: "100vw",
-    height: "100vh",
-};
+import styled from "styled-components";
 
 const textareaStyle = {
+    display: "block",
     width: "600px",
     height: "600px",
 };
+
+const PreviewDiv = styled.div`
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+`;
 
 export default function Create(props) {
     const [values, setValues] = useState({
@@ -53,7 +55,7 @@ export default function Create(props) {
                     />
                 </div>
                 <br />
-                <div style={previewStyle}>
+                <PreviewDiv>
                     <div>
                         <div>
                             <label>本文</label>
@@ -71,7 +73,7 @@ export default function Create(props) {
                         <br />
                     </div>
                     <div dangerouslySetInnerHTML={{ __html: props.body }} />
-                </div>
+                </PreviewDiv>
                 <div className="grid place-items-center">
                     <label>accessibility</label>
                     <select
