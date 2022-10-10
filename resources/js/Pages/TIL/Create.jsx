@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { Inertia } from "@inertiajs/inertia";
 import { Link } from "@inertiajs/inertia-react";
 import styled from "styled-components";
@@ -25,6 +25,7 @@ export default function Create(props) {
 
     const handleChange = (e) => {
         e.preventDefault();
+        e.persist();
         const key = e.target.id;
         const value = e.target.value;
         setValues((values) => ({
@@ -32,7 +33,9 @@ export default function Create(props) {
             [key]: value,
         }));
         if (values.body != "") {
-            Inertia.post("/til/mydashboard/create", values);
+            setTimeout(() => {
+                Inertia.post("/til/mydashboard/create", values);
+            }, 500);
         }
     };
 
