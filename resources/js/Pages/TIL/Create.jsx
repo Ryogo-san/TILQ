@@ -13,7 +13,6 @@ const PreviewDiv = styled.div`
     display: flex;
     width: 100vw;
     height: 100vh;
-    justify-content: center;
 `;
 
 export default function Create(props) {
@@ -50,8 +49,9 @@ export default function Create(props) {
                 <div className="grid place-items-center">
                     <label>タイトル</label>
                     <input
-                        type="text"
                         id="title"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-10/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        type="text"
                         name="post[title]"
                         value={values.title}
                         onChange={handleChange}
@@ -69,6 +69,9 @@ export default function Create(props) {
                             value={values.body}
                             onChange={handleChange}
                             style={textareaStyle}
+                            rows="4"
+                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Your memo..."
                         />
                     </div>
                     <div>
@@ -81,6 +84,7 @@ export default function Create(props) {
                     <label>accessibility</label>
                     <select
                         id="accessibility_id"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         name="post[accessibility_id]"
                         value={values.accessibility_id}
                         onChange={handleChange}
