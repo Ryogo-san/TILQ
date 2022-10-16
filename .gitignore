@@ -19,3 +19,5 @@ yarn-error.log
 # below are my own configuration.
 FunctionalRequirements.md
 Devlog.md
+stories
+.storybook

@@ -32,7 +32,7 @@ Route::group(['prefix' => 'til', 'middleware' => 'auth'], function () {
     Route::get('mydashboard/create', [PostController::class, 'create']);
     Route::post('mydashboard/create', [PostController::class, 'markdown'])->middleware('throttle:150');
     Route::post('mydashboard/store', [PostController::class, 'store']);
-    Route::get('mydashboard/{post}', [PostController::class, 'showDetail'])->name('TILshowDetail');
+    Route::get('mydashboard/{post}', [PostController::class, 'showDetail'])->whereUuid('post')->name('TILshowDetail');
 });
 
 Route::get('/dashboard', function () {
